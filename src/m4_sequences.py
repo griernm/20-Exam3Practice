@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Nathalie Grier.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -36,10 +36,10 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_practice_problem4a()
-    run_test_practice_problem4b()
+    #run_test_practice_problem4a()
+    #run_test_practice_problem4b()
     run_test_practice_problem4c()
-    run_test_practice_problem4d()
+    #run_test_practice_problem4d()
 
 
 def is_prime(n):
@@ -135,7 +135,7 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -143,6 +143,11 @@ def practice_problem4a(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
 
+    seq = []
+    for k in range(len(sequence) - 1):
+        if sequence[k] == sequence[k + 1]:
+            seq.append(k)
+    return seq
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -198,7 +203,7 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -206,6 +211,11 @@ def practice_problem4b(sequence):
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
 
+    num = sequence[0]
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > num:
+            num = sequence[k]
+    return num
 
 def run_test_practice_problem4c():
     """ Tests the    practice_problem4c    function. """
@@ -296,7 +306,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -307,6 +317,14 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+
+    for k in range(len(points)):
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            x = points[k].y
+            y = points[k].x
+            new_point = rg.Point(x, y)
+            return new_point
+    return 'Not found'
 
 
 def run_test_practice_problem4d():
@@ -399,6 +417,7 @@ def practice_problem4d(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+
 
 
 # -----------------------------------------------------------------------------
